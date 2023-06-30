@@ -16,6 +16,7 @@ const SetupLayout = async ({ children }: { children: React.ReactNode }) => {
   });
 
   if (store) {
+    // go to dashboard
     redirect(`/${store.id}`);
   }
 
