@@ -2,6 +2,8 @@ import prismadb from '@/lib/prismadb';
 import { auth } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
 
+// PATCH & DELETE
+
 export const PATCH = async (
   req: Request,
   { params: { storeId } }: { params: { storeId: string } }
@@ -17,7 +19,7 @@ export const PATCH = async (
     }
 
     if (!storeId) {
-      return new NextResponse('Store id is required!', { status: 400 });
+      return new NextResponse('Store ID is required!', { status: 400 });
     }
 
     const store = await prismadb.store.updateMany({

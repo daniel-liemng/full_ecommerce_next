@@ -3,6 +3,8 @@ import { NextResponse } from 'next/server';
 
 import prismadb from '@/lib/prismadb';
 
+// POST
+
 export const POST = async (req: Request) => {
   try {
     const { userId } = auth();
@@ -11,7 +13,7 @@ export const POST = async (req: Request) => {
     const { name } = body;
 
     if (!userId) {
-      return new NextResponse('Unauthorized', { status: 401 });
+      return new NextResponse('Unauthenticated', { status: 401 });
     }
 
     if (!name) {
