@@ -8,7 +8,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
 import { useStoreModal } from '@/hooks/useStoreModal';
-import { Modal } from '@/components/ui/modal';
+import Modal from '@/components/Modal';
 import {
   Form,
   FormControl,
@@ -41,7 +41,7 @@ export const StoreModal = () => {
     try {
       setIsLoading(true);
 
-      const { data } = await axios.post('/api/store', values);
+      const { data } = await axios.post('/api/stores', values);
 
       window.location.assign(`/${data?.id}`);
     } catch (err) {
